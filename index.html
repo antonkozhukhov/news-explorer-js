@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main/main.ce24a883ead80b0fefee.css?9bcfaae854a020a09bb5"/>
+
+    <title>Поиск новостей</title>
+</head>
+<body>
+  <section class="search">
+        <header class="header">
+          <h1 class="header__tittle">NewsExplorer</h1>
+          <ul class="header__menu ">
+              <li class="header__main"><a href="./index.html" >Главная</a></li>
+              <li class="header__saved-articles display-none"><a class = "special-href" href="./secondary/index.html" >Сохраненные статьи</a></li>
+              <li class="header__auth"><a href="./index.html" >Авторизоваться</a></li>
+              <li class="header__name-menu display-none ">
+                <h3 class="header__name"></h3>
+                <div class="header__name-icon"><img class="header__name-image" alt="иконка выхода" src = "./images/logout_01.png"/></div>
+              </li>
+            </ul>
+          <img class="header__menu-mobile-img"  src = "./images/menu_main.png" alt="иконка меню"><!--это элемент блока, а не модификатор-->
+        </header>
+        <div class="body-mobile display-none">
+            <div class="mobile">
+                  <div class="mobile__header">
+                    <h1 class="header__tittle header__tittle_mobile">NewsExplorer</h1>
+                    <img src = "./images/back.png" alt="иконка меню" class="header__menu-mobile-img" id ="exit">
+                  </div>
+                  <ul class="header__menu header__menu_mobile">
+                    <li class="header__main header__main_mobile"><a href="./index.html" >Главная</a></li>
+                    <li class="header__saved-articles header__saved-articles_mobile"><a href="./secondary/index.html" >Сохраненные статьи</a></li>
+                    <li class = "header__name-menu header__name-menu_mobile">
+                      <a href="./index.html" class="header__name header__name_mobile ">Антон </a>
+                      <a href="./index.html" class="header__name header__name-icon_mobile"><img alt="иконка выхода" src = "./images/logout.png"/></a>
+                    </li>
+                  </ul>
+            </div>
+        </div>
+        <div class="search-menu">
+          <h2 class="search-menu__tittle">Что в мире творится?</h2>
+          <h3 class="search-menu__subtittle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</h3>
+          <form class="search-menu__form" name="search">
+            <input type="text" name="name"  class="search-menu__input" placeholder="Введите тему новости">
+            <button class="button search-menu__button">Искать</button>
+          </form>
+        </div>
+  </section>
+  <section class="popup-forms display-none">
+
+
+        <form class="form  form__enter display-none" name="enter">
+          <img alt="закрыть" src = "./images/back.png" class="form__close enter-close">
+          <h2 class="form__title">Вход</h2>
+          <h3 class="form__input-title">Email</h3>
+          <input type="email" name="enteremail" pattern="^[a-z0-9]+(\.)?[a-z0-9_-]+@[a-z0-9][a-z0-9_-]+\.([a-z]){2,10}(\.[a-z]{2,10})?$"  class="form__input form__input_type-email" placeholder="Введите почту">
+          <p id = "error-enteremail" class = "form__error-valid">Неправильный формат email </p>
+          <h3 class="form__input-title">Пароль</h3>
+          <input type="password" name="enterpassword" minlength="2" maxlength="30"   class="form__input form__input_type-password" placeholder="Введите пароль">
+          <p id = "error-enterpassword" class =  "form__error-valid">Неправильный формат пароля </p>
+          <p class = "form__error-valid form__error-valid__registration" id="error-email-or-password"></p>
+          <button class="button form__button enter-button ">Войти</button>
+          <p class="or-registration">Или <span class="or-registration__link or-registration__link_registration">Зарегистрироваться</span></p>
+      </form>
+
+
+        <form class="form  form__registration " name="registration">
+          <img alt="закрыть" src = "./images/back.png" class="form__close reg-close">
+          <h2 class="form__title">Регистрация</h2>
+          <h3 class="form__input-title">Email</h3>
+          <input type="email" name="email" pattern="^[a-z0-9]+(\.)?[a-z0-9_-]+@[a-z0-9][a-z0-9_-]+\.([a-z]){2,10}(\.[a-z]{2,10})?$" class="form__input form__input_type-email" placeholder="Введите почту">
+          <p id = "error-email" class = "form__error-valid "></p>
+          <h3 class="form__input-title">Пароль</h3>
+          <input type="password" name="password" minlength="2" maxlength="30"   class="form__input form__input_type-password"  placeholder="Введите пароль">
+          <p id = "error-password"  class =  " form__error-valid "></p>
+          <h3 class="form__input-title">Имя</h3>
+          <input type="text" name="name" minlength="2" class="form__input form__input_type-name" placeholder="Введите своё имя">
+          <p id = "error-name" class = " form__error-valid "></p>
+          <p class = "form__error-valid form__error-valid__registration" id="user-is"></p>
+          <button class="button form__button registration-button"  >Зарегистрироваться</button>
+          <p class="or-registration ">Или <span class="or-registration__link or-registration__link_enter"> Войти</span></p>
+        </form>
+
+        <form class="form  form__registration-ok display-none" name="registrationOk">
+          <img alt="закрыть" src = "./images/back.png" class="form__close">
+          <h2 class="form__title">Пользователь успешно зарегистрирован!</h2>
+          <button class="or-registration__link registration-ok__subtitle"> Выполнить вход</button>
+        </form>
+  </section>
+  <section class="results display-none">
+        <p class="results__title">Результаты поиска</p>
+        <div class="table">
+
+
+         <!--шаблон статьи
+
+           <div class="article">
+            <img src = "./images/image_08.png" class="article__pic" alt="картинка из статьи">
+            <p class="article__date">2 августа, 2019</p>
+            <h3 class="article__title">Национальное достояние – парки</h3>
+            <p class="article__content">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
+               система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.</p>
+            <p class="article__source">Лента.ру</p>
+          </div>-->
+
+         </div>
+    <div class="finding display-none">
+      <i class="finding__img"></i>
+      <h3 class="finding__subtitle">Идет поиск новостей...</h3>
+    </div>
+    <div class="nothing-not-found display-none">
+      <img src = "./images/not-found_v1.png" class="nothing-not-found__img" alt="не найдено">
+      <h2 class="nothing-not-found__title">Ничего не найдено</h2>
+      <h3 class="nothing-not-found__subtitle">К сожалению по вашему запросу ничего не найдено.</h3>
+    </div>
+    <button class="show-more display-none" >Показать ещё</button>
+  </section>
+  <section class="author">
+    <div class="author__photo" ><img src = "./images/image-03.png" alt="фото автора" class="author__img" > </div>
+      <div class="author__about">
+      <h2 class="author__title"> Об авторе</h2>
+      <p class="author__info"> Это блок с описанием автора проекта. Здесь следует указать,
+        как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.
+        Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились,
+        и чем можете помочь потенциальным заказчикам. </p>
+    </div>
+  </section>
+  <footer class="footer">
+        <p class=" footer__copyright">2020 Supercite</p>
+        <div class="footer__info">
+          <a class="footer__info-main" href="./index.html" >Главная</a>
+          <a class="footer__info-yapracticum" href="https://praktikum.yandex.ru/"  target="_blank">Яндекс.Практикум</a>
+        </div>
+        <div class="footer__icons">
+          <a href="https://github.com/antonkozhukhov/" class="footer__icon" target="_blank">
+            <picture>
+              <source media="(max-width: 400px)"
+              srcset="./images/github_optim.svg" />
+              <source media="(max-width: 800px)"
+              srcset="./images/github@2x.svg"/>
+              <img alt="гитхаб"    src = "./images/github.png"/>
+            </picture>
+          </a>
+          <a href="https://www.facebook.com/anton.kozhukhov/" class="footer__icon" target="_blank">
+            <picture>
+              <source media="(max-width: 400px)"
+              srcset="./images/iconmonstr-facebook-6_optim.svg"/>
+              <source media="(max-width: 800px)"
+              srcset="./images/iconmonstr-facebook-6.svg"/>
+              <img alt="фейсбук" src = "./images/fb.png" />
+            </picture>
+          </a>
+        </div>
+  </footer>
+     <script src="main/main.e65515c947fa19cc77de.js?9bcfaae854a020a09bb5"></script>
+
+</body>
+</html>
+
