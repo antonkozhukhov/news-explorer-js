@@ -1,0 +1,9 @@
+
+/node_modules
+/dist
+.log
+.idea
+.sublime
+.vscode
+DS_Store
+Thumbs.db

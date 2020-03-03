@@ -1,0 +1,11 @@
+export const mainPage = 'https://www.news-explorer.fun/';
+export const baseUrl = 'https://www.api.news-explorer.fun';
+export const badToken = '123';
+export let emailTemplate = /^[a-z0-9]+(\.)?[a-z0-9_-]+@[a-z0-9][a-z0-9_-]+\.([a-z]){2,10}(\.[a-z]{2,10})?$/;
+export let nameTemplate = /(^[А-ЯЁ][а-яё]+(-[А-ЯЁ][а-яё]+)?$)|(^[A-Z][a-z]+(-[A-Z][a-z]+)?$)/;
+export const userError =  'Такой пользователь уже есть';
+export const emailOrPasswordError = 'Неправильный пароль или email';
+export const emptyString = '';
+export const emailWrongForm = 'Неправильный формат email';
+export const nameWrongForm = 'Неправильный формат имени';
+export const lengthError =  'Должно быть от 2 до 30 символов';

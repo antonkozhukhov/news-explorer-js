@@ -1,0 +1,132 @@
+.article{
+  position: relative;
+  background: #FFFFFF;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.article__icon-delete{
+  position: absolute;
+  right:70px;
+  top: 10px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 8px 12px ;
+  text-align: center;
+  color: #000000;
+}
+
+.article__icon-save{
+  position: absolute;
+  right: 24px;
+  top: 24px;
+  width: 40px;
+  height: 40px;
+  z-index: 1;
+
+  background-image: url(../../../../images/Group12.png);
+}
+.article__icon-save_active{
+  background-image: url(../../../../images/Group_11.png);
+}
+
+.article__icon-save_hover{
+  background-image: url(../../../../images/Group14.png);
+}
+.article__pic{
+  width: 100%;
+  max-height: 272px;
+  overflow: hidden;
+  border-radius: 10px 10px 0px 0px;
+}
+.article__img{
+ width: 100%;
+
+}
+.article__date{
+  font-family: Source Sans Pro;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: 20px;
+  margin-left: 24px;
+  color: #B6BCBF;
+  }
+.article__title{
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 30px;
+  color: #1A1B22;
+  margin-bottom: 12px;
+  margin-left: 24px;
+  margin-right: 24px;
+
+
+}
+.article__content{
+  margin-left: 24px;
+  margin-right: 24px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1A1B22;
+  }
+.article__source{
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #B6BCBF;
+  margin-left: 24px;
+}
+@media (max-width :790px) {
+.article__date{
+  margin-top: 16px;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 12px;
+}
+.article__title{
+  margin-top: 0px;
+  font-size: 16px;
+  line-height: 18px;
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.article__content{
+  margin-left: 16px;
+  margin-right: 16px;
+  height: 88px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.article__source{
+  margin-left: 16px;
+}
+}
+@media (max-width :380px) {
+.article{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.article__content{
+  font-size: 16px;
+  line-height: 22px;
+}
+}

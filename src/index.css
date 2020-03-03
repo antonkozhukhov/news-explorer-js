@@ -1,0 +1,74 @@
+@import url(./blocks/main/popup-forms/form.css);
+@import url(./blocks/main/footer/footer.css);
+@import url(./blocks/main/results/results.css);
+@import url(./blocks/main/search/header/header.css);
+@import url(./blocks/main/search/search-menu/search-menu.css);
+@import url(./blocks/main/search/header/mobile__header.css);
+@import url(./blocks/main/author/author.css);
+@import url(./blocks/main/after_results/after_results.css);
+
+@font-face {
+  font-family: 'Roboto';
+  font-style:  normal;
+  src: url(./roboto/roboto-regular-webfont.woff) format("woff");
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style:  normal;
+  font-weight: 200;
+  src: url(./roboto/roboto-medium-webfont.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style:  normal;
+  src: url(./roboto/robotoslab-regular-webfont.woff) format("woff");
+}
+
+textarea:focus, input:focus, button:focus
+{
+  outline: none;
+
+}
+a:focus{
+  cursor: url(./images/lapka.png),pointer;
+}
+button:hover{
+  cursor: url(./images/lapka.png),pointer;
+}
+a{
+  text-decoration: none;
+  color: #FFFFFF;
+  cursor: url(./images/lapka.png), pointer;
+}
+a:hover{
+  cursor: url(./images/lapka.png),pointer;
+}
+button:disabled{
+  cursor: default;
+}
+body{
+max-width: 1440px;
+margin: auto;
+font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
+}
+ul{
+  list-style-type: none;
+}
+.display-none{
+  display: none;
+}
+/* убираем желтый фон при выборе сохраненного значения инпута*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-animation: autofill 0s forwards;
+}
+
+@-webkit-keyframes autofill {
+  100% {
+    background: transparent;
+    color: inherit;
+  }
+}

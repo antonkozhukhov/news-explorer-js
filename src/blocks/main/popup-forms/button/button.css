@@ -1,0 +1,46 @@
+.form__button{
+  padding: 0;
+  width: 358px;
+  height: 64px;
+  border-radius: 100px;
+  background: #E6E8EB;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 39px auto 16px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border: thick;
+  color: #B6BCBF;
+  justify-content: space-evenly;
+  cursor: none;
+}
+
+.button__isvalid{
+  color: #FFFFFF;
+  background: #2F71E5;
+  box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
+  cursor: url(../../../../images/lapka.png),pointer;
+}
+.button__isvalid:focus{
+  background: #347EFF;
+}
+.button__isvalid:hover{
+  background: #347EFF;
+}
+.button__isvalid:active{
+  background: #2A65CC;
+}
+@media (max-width :520px){
+.form__button{
+  width: 300px;
+}
+}
+@media (max-width :380px) {
+.form__button{
+  width: 89%;
+}
+}

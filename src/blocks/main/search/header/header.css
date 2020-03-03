@@ -1,0 +1,192 @@
+.header{
+  z-index: 3;
+  display: flex;
+  color: #FFFFFF;
+  justify-content: space-between;
+  padding: 0px 40px 0px;
+  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+  margin: 0;
+}
+.header__tittle{
+  font-size: 20px;
+  line-height: 24px;
+  padding-bottom: 0;
+  padding-top: 30px;
+  margin: 0;
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: bold;
+  width: 200px;
+}
+.header__menu{
+  padding-bottom: 0px;
+  padding-top: 16px;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  text-decoration: none;
+  color: #FFFFFF;
+  align-items: baseline;
+}
+.header__main{
+  font-size: 18px;
+  line-height: 24px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  text-decoration: none;
+  color: #FFFFFF;
+  margin: 0;
+  margin-right: 32px;
+  padding-bottom: 27px;
+  padding-top: 0;
+  border-bottom: 3px solid white;
+}
+.header__saved-articles{
+  font-size: 18px;
+  line-height: 24px;
+  text-decoration: none;
+
+  margin: 0;
+  margin-right: 32px;
+  padding-bottom: 0;
+  padding-top: 0;
+  color: #B6BCBF;
+}
+.special-href{
+  color: #B6BCBF;
+}
+.special-href:hover{
+  color: #FFFFFF;
+}
+.header__auth{
+  text-decoration: none;
+  color: #FFFFFF;
+  margin: 0;
+  padding: 12px;
+  padding-bottom: 0;
+  padding-top: 0;
+  margin-right: 32px;
+  border: 1px solid #FFFFFF;
+  text-align: center;
+  border-radius: 100px;
+  vertical-align: middle;
+  width: 152px;
+  font-size: 18px;
+  line-height	: 40px;
+}
+.header__auth:hover{
+  cursor: url(../../../../images/lapka.png), pointer;
+}
+.header__name-menu{
+  font-size: 18px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  padding-left: 10px;
+  display: flex;
+  border: 1px solid #FFFFFF;
+  justify-content: center;
+  text-align: center;
+  border-radius: 100px;
+  line-height	: 40px;
+}
+.header__name{
+  font-size: 18px;
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  color: #FFFFFF;
+  margin: 0;
+  margin-right: 6px;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+.header__name-icon{
+  margin-right: 6px;
+  padding-top: 3px;
+}
+.header__name-image:hover{
+  cursor: url(../../../../images/lapka.png), pointer;
+}
+.header__menu-mobile-img{
+  display: none;
+}
+@media (max-width :790px) {
+.header__main{
+  margin-right: 16px;
+  margin-bottom: 0px;
+}
+.header__saved-articles{
+  margin-right: 16px;
+}
+.header__auth{
+   margin-right: 16px;
+}
+}
+@media (max-width :555px) {
+.header{
+  padding: 0px 16px 0px;
+  flex-direction: column;
+  }
+  }
+@media (max-width :380px) {
+  .header{
+    flex-direction: row;
+    position: relative;
+  }
+.header__menu{
+  display: none;
+}
+.header__tittle{
+  font-size: 16px;
+  line-height: 24px;
+  padding-bottom: 16px;
+  padding-top: 16px;
+  padding-left: 0px;
+  width: 117px;
+}
+
+.header__menu-mobile-img{
+  display: block;
+  width: 24px;
+  height: 24px;
+  padding-bottom: 16px;
+  padding-top: 16px;
+  padding-left: 0px;
+  cursor:url(../../../../images/lapka.png),pointer;
+}
+.header__main{
+  padding-bottom: 27px;
+  padding-top: 0;
+  margin: 0;
+  padding: 0
+}
+.header__saved-articles{
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+.header__auth{
+  margin: 0;
+  padding: 0;
+}
+.header__name-menu{
+  margin: 0;
+  padding: 0;
+}
+
+.header__name{
+  margin: 0;
+  padding: 0;
+}
+.header__name-icon{
+  margin-right: 6px;
+  padding-top: 6px;
+  margin: 0;
+  padding: 0;
+}
+}
