@@ -62,11 +62,12 @@ if (keywords.length == 0){
 }
 }
 
-export function count(item, massive){
-let numbItem = 0;
-for (let i=0; i<massive.length; i++){
-  if(massive[i].keyword == item.keyword){ numbItem = numbItem+1;}
-  else(numbItem = numbItem)
-}
-return numbItem;
-}
+export function countOfArticlessWithOneKeyword(articleWithKeyword, articles){
+let numberOfArticlesWithOneKeyword = 0;
+articles.forEach(article=>{
+  if(article.keyword == articleWithKeyword.keyword){ numberOfArticlesWithOneKeyword = numberOfArticlesWithOneKeyword+1;
+  }
+  else(numberOfArticlesWithOneKeyword = numberOfArticlesWithOneKeyword)})
+
+return numberOfArticlesWithOneKeyword;
+};

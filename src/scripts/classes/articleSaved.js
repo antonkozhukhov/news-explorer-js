@@ -1,16 +1,22 @@
-import {api} from '../secondary';
+import {serverApi} from '../secondary';
 export class Article{
   constructor(article){
-    this.articleElement = this.createarticle(article);
-    this.articleElement.querySelector('.article__icon-save_saved').addEventListener('click', function( event){
+    this.articleElement = this._createarticle(article);
+    this.articleElement.querySelector('.article__icon-save_saved').addEventListener('click', function(){
       event.stopImmediatePropagation();
       event.preventDefault();
       const card = event.target.parentElement;
-      card.parentElement.removeChild(card);
-      api.deleteArticle(article._id)
+      serverApi.deleteArticle(article._id)
+      .then(()=>{
+        card.parentElement.removeChild(card);
         })
+          .catch(err => {
+          console.log(err);
+         })
+    });
   }
-  createarticle(article){
+
+  _createarticle(article){
     const articleResult = document.createElement('a');  /*создание элементов карточки*/
     articleResult.classList.add('article');
     articleResult.setAttribute('href', article.link);

@@ -1,4 +1,4 @@
-import {api} from '../script'
+import {serverApi} from '../script'
 import {date} from '../functions/functionSave'
 import {islogin} from '../functions/functions'
 export class Article{
@@ -6,51 +6,61 @@ export class Article{
     this.id;
     this.keyword = keyword;
     this.saved = saved;
-    this.articleElement = this.createarticle(keyword, article, saved);
-
-    // нажали на "сохранить" при разных состояниях логина
-    this.articleElement.querySelector('.article__icon-save').addEventListener('click', function( event){
+    this.articleElement = this._createarticle(keyword, article, saved);
+    this.articleElement.querySelector('.article__icon-save').addEventListener('click', function(event){
       event.stopPropagation();
       event.preventDefault();
       if(islogin){
           if(!saved){
-            event.target.classList.add('article__icon-save_active');
-            event.target.classList.remove('article__icon-save_hover');
-            saved = true;
-            api.postArticle(keyword, article)
-            .then(res=>{ this.id = res;})
+            serverApi.postArticle(keyword, article)
+            .then(res=>{
+               this.id = res;
+               event.target.classList.add('article__icon-save_active');
+               event.target.classList.remove('article__icon-save_hover');
+               saved = true;
+               console.log(this.id)
+              })
+              .catch(err => {
+               console.log(err);
+              })
 
-          }
+        }
           else {
+            serverApi.deleteArticle(this.id)
+            .then(()=>{
             event.target.classList.remove('article__icon-save_active');
             saved = false;
-            api.deleteArticle(this.id)
-
-          }
+            })
+            .catch(err => {
+              console.log(err);
+             })
         }
-    else{event.preventDefault(); }
-    })
-
+        }
+    else{event.preventDefault();}
+    });
 // подвели мышь и отвели мышь при разных состояниях логина
-    this.articleElement.querySelector('.article__icon-save').addEventListener('mouseover', function( event){
-       if (!islogin){
-          event.target.parentElement.querySelector('.article__icon-delete').classList.remove('display-none');
-          event.target.classList.add('article__icon-save_hover');
-        }
-       else if(saved) {event.target.classList.add('article__icon-save_active');}
-       else if(!saved) {event.target.classList.add('article__icon-save_hover');}
-    })
-    this.articleElement.querySelector('.article__icon-save').addEventListener('mouseout', function( event){
+    this.articleElement.querySelector('.article__icon-save').addEventListener('mouseover', function(){
+      if (!islogin){
+        event.target.parentElement.querySelector('.article__icon-delete').classList.remove('display-none');
+        event.target.classList.add('article__icon-save_hover');
+      }
+     else if(this.saved) {event.target.classList.add('article__icon-save_active');}
+     else if(!this.saved) {event.target.classList.add('article__icon-save_hover');}
+
+    });
+    this.articleElement.querySelector('.article__icon-save').addEventListener('mouseout', function(){
       if (!islogin){
         event.target.parentElement.querySelector('.article__icon-delete').classList.add('display-none');
         event.target.classList.remove('article__icon-save_hover');
     }
-      else if(!saved) {event.target.classList.remove('article__icon-save_hover');}
-    })
-
+      else if(!this.saved) {event.target.classList.remove('article__icon-save_hover');}
+    });
 }
+// нажали на "сохранить" при разных состояниях логина
+
+
 //  элементы статьи
- createarticle(keyword, article, saved){
+ _createarticle(keyword, article, saved){
 
     const articleResult = document.createElement('a');  /*создание элементов карточки*/
     articleResult.classList.add('article');
@@ -86,7 +96,7 @@ export class Article{
      articleSource.classList.add('article__source');
      articleSource.textContent =  article.source.name;
 
-     articlePic.appendChild(articleImg);
+    articlePic.appendChild(articleImg);
     articleResult.appendChild(articleIconSave);
     articleResult.appendChild(articlePic);
     articleResult.appendChild(articleDate);

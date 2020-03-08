@@ -1,5 +1,5 @@
 import {date} from '../functions/functionSave'
-export class Api {
+export class ServerApi {
   constructor(options) {
     this.baseUrl = options['baseUrl'];
     this.headers = options['headers'];
@@ -16,15 +16,15 @@ signup(name, email, password){
         password: password
       })
     })
-    .then(res => {
-       if (res.ok) {
-       return res.json();
-      }
-      return Promise.reject(`Ошибка: ${res.message}`);
-    })
-        .catch((err) => {
-      console.log(err);
-    });
+
+.then((res) => {
+  return res.json()
+      .then((body) => {
+        return res.ok ?
+              Promise.resolve(body) :
+              Promise.reject(body)
+      });
+});
 }
 signin(email, password){
   return fetch(`${this.baseUrl}/signin`, {
@@ -37,15 +37,16 @@ signin(email, password){
       password: password
     })
   })
-  .then(res => {
-    if (res.ok) {
-     return res.json();
-    }
-    return Promise.reject(`Ошибка1: ${res.status}`);
-  })
-      .catch((err) => {
-    console.log(err);
+  .then((res) => {
+    return res.json()
+        .then((body) => {
+          return res.ok ?
+                Promise.resolve(body) :
+                Promise.reject(body)
+        });
   });
+
+
 }
 getArticles(){
   return fetch(`${this.baseUrl}/articles`, {
@@ -55,15 +56,16 @@ getArticles(){
     authorization: `Bearer ${localStorage.getItem('token')}`
 },
   })
-  .then(res => {
-    if (res.ok) {
-     return res.json();
-    }
-    return Promise.reject(`Ошибка2: ${res.status}`);
-  })
-      .catch((err) => {
-    console.log(err);
+  .then((res) => {
+    return res.json()
+        .then((body) => {
+           return res.ok ?
+                Promise.resolve(body) :
+                Promise.reject(body)
+        });
   });
+
+
 }
  getMyArticles(){
   return fetch(`${this.baseUrl}/articles/me`, {
@@ -73,15 +75,15 @@ getArticles(){
     authorization: `Bearer ${localStorage.getItem('token')}`
 },
   })
-  .then(res => {
-    if (res.ok) {
-     return res.json();
-    }
-    return Promise.reject(`Ошибка2: ${res.status}`);
-  })
-      .catch((err) => {
-    console.log(err);
+  .then((res) => {
+    return res.json()
+        .then((body) => {
+          return res.ok ?
+                Promise.resolve(body) :
+                Promise.reject(body)
+        });
   });
+
 }
 postArticle(keyword, article){
   return fetch(`${this.baseUrl}/articles`, {
@@ -100,33 +102,34 @@ body: JSON.stringify({
     image: article.urlToImage,
     })
   })
-  .then(res => {
-    if (res.ok) {
-    return res.json();
-    }
-    return Promise.reject(`Ошибка2: ${res.status}`);
-  })
-    .catch((err) => {
-    console.log(err);
+  .then((res) => {
+    return res.json()
+        .then((body) => {
+          return res.ok ?
+                Promise.resolve(body) :
+                Promise.reject(body)
+        });
   });
+
+
 }
 deleteArticle(id){
-  return fetch(`${this.baseUrl}/${id}`, {
+  return fetch(`${this.baseUrl}/articles/${id}`, {
   method: 'DELETE',
   headers: {
     'Content-Type': 'application/json',
        authorization: `Bearer ${localStorage.getItem('token')}`
 },
   })
-  .then(res => {
-    if (res.ok) {
-    return res.json();
-    }
-    return Promise.reject(`Ошибка2: ${res.status}`);
-  })
-      .catch((err) => {
-    console.log(err);
+  .then((res) => {
+    return res.json()
+        .then((body) => {
+           return res.ok ?
+                Promise.resolve(body) :
+                Promise.reject(body)
+        });
   });
+
 }
 getMe(){
   return fetch(`${this.baseUrl}/users/me`, {
@@ -135,14 +138,13 @@ getMe(){
     'Content-Type': 'application/json',
      authorization: `Bearer ${localStorage.getItem('token')}`
 },  })
-  .then(res => {
-    if (res.ok) {
-    return res.json();
-    }
-    return Promise.reject(`Ошибка2: ${res.status}`);
-  })
-      .catch((err) => {
-    console.log(err);
-  });
+.then((res) => {
+  return res.json()
+      .then((body) => {
+        return res.ok ?
+              Promise.resolve(body) :
+              Promise.reject(body)
+      });
+});
 }
 }
