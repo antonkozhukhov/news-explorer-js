@@ -18,7 +18,6 @@ export class Article{
                event.target.classList.add('article__icon-save_active');
                event.target.classList.remove('article__icon-save_hover');
                saved = true;
-               console.log(this.id)
               })
               .catch(err => {
                console.log(err);
@@ -44,8 +43,9 @@ export class Article{
         event.target.parentElement.querySelector('.article__icon-delete').classList.remove('display-none');
         event.target.classList.add('article__icon-save_hover');
       }
-     else if(this.saved) {event.target.classList.add('article__icon-save_active');}
-     else if(!this.saved) {event.target.classList.add('article__icon-save_hover');}
+     else if(saved) {event.target.classList.add('article__icon-save_active');
+     event.target.classList.remove('article__icon-save_hover');}
+     else if(!saved) {event.target.classList.add('article__icon-save_hover');}
 
     });
     this.articleElement.querySelector('.article__icon-save').addEventListener('mouseout', function(){
@@ -53,7 +53,8 @@ export class Article{
         event.target.parentElement.querySelector('.article__icon-delete').classList.add('display-none');
         event.target.classList.remove('article__icon-save_hover');
     }
-      else if(!this.saved) {event.target.classList.remove('article__icon-save_hover');}
+      else if(!saved) {event.target.classList.remove('article__icon-save_hover');}
+      else if(saved) {event.target.classList.add('article__icon-save_active');}
     });
 }
 // нажали на "сохранить" при разных состояниях логина
