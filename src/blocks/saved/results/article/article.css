@@ -1,0 +1,54 @@
+.article__icon-name{
+  position: absolute;
+  left: 24px;
+  top: 10px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 8px 12px ;
+  text-align: center;
+  color: #000000;
+}
+.article__icon-delete{
+  position: absolute;
+  right:70px;
+  top: 10px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 8px 12px ;
+  text-align: center;
+  color: #000000;
+}
+.article__icon-save_saved{
+  width: 40px;
+  height: 40px;
+  background-image: url(../../../../images/Group_12_2.png);
+}
+.article__icon-save_saved:hover{
+  cursor: pointer;
+  background-image: url(../../../../images/Group12-black.png);
+}
+@media (max-width :1300px) {
+.article__icon-delete{
+  display: none;
+}
+}
+@media (max-width :790px) {
+.article__icon-name{
+  left: 14px;
+  top: -5px;
+}
+.article__icon-save_saved{
+  right: 14px;
+  top: 10px
+}
+}

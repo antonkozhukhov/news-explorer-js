@@ -1,0 +1,118 @@
+.footer{
+
+  padding-top: 33px;
+  padding-bottom: 25px;
+  padding-left: 104px;
+  padding-right: 104px;
+  display: flex;
+  justify-content: space-between;
+
+}
+.footer__copyright{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #B6BCBF;
+  margin: 0;
+}
+.footer__info{
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+.footer__info-main{
+  margin: 0;
+  text-decoration: none;
+  color: #1A1B22;
+}
+.footer__info-yapracticum{
+  margin-left: 30px;
+  width: 70%;
+  text-decoration: none;
+  color: #1A1B22;
+}
+.footer__icon{
+margin-right: 26px;
+}
+.footer__icon:last-of-type{
+  margin: 0;
+}
+@media (max-width :790px) {
+.footer{
+  margin: auto;
+}
+.footer__copyright{
+  font-size: 16px;
+  line-height: 22px;
+  margin: 0;
+}
+.footer__info{
+  font-size: 18px;
+  line-height: 24px;
+  align-items: flex-start;
+}
+.footer__info-main{
+  margin: 0px;
+  width: 25%;
+}
+.footer__info-yapracticum{
+  margin: 0;
+margin-left: 10px;
+}
+.footer__icon{
+  margin-right: 26px;
+}
+.footer__icon:last-of-type{
+  margin: 0;
+}
+}
+@media (max-width :555px) {
+.footer{
+  padding-left: 0;
+  padding-right: 0;
+}
+}
+
+@media (max-width :380px) {
+.footer{
+  position: relative;
+  width: 89%;
+  margin: auto;
+  padding:100px 0 0px;
+
+}
+.footer__copyright{
+  position: absolute;
+  left: 5px;
+  bottom: -38px;
+  font-size: 16px;
+  line-height: 22px;
+  margin: 0;
+}
+.footer__info{
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 24px;
+  flex-direction: column;
+}
+.footer__icons{
+  display: flex;
+}
+.footer__icon{
+  margin-right: 26px;
+}
+.footer__info-yapracticum{
+  margin: 0;
+  width: 70%;
+  font-size: 18px;
+  text-decoration: none;
+  color: #1A1B22;
+}
+}

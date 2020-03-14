@@ -1,0 +1,17 @@
+.registration-ok{
+  display: none;
+  flex-direction: column;
+  }
+  .registration-ok__subtitle{
+  padding-top: 14px ;
+    font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+
+  color: #2F71E5;
+  }
+.registration-ok.form-is-opened{
+  display: flex;
+}
