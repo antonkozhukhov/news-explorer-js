@@ -10,3 +10,4 @@ export const lengthError =  'Должно быть от 2 до 30 символо
 export const numberOfDays = 7;
 export const numberOfArticlesForOneLoad = 3;
 export const emptyKeywordMessage = 'Нужно ввести ключевое слово';
+export const newsApiError = 'Ошибка соединения с сервером';

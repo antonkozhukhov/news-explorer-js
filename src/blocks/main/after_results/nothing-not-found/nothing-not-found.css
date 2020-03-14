@@ -1,6 +1,6 @@
 .nothing-not-found{
   width: 25%;
-  margin: 80px auto ;
+  margin: 0px auto ;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +8,7 @@
 .nothing-not-found__title{
   margin-top: 24px;
   margin-bottom: 0px;
-  font-family: Roboto Slab;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 26px;
@@ -17,7 +17,7 @@
   color: #1A1B22;
 }
 .nothing-not-found__subtitle{
-  font-family: Roboto;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -29,7 +29,7 @@
 @media (max-width :790px) {
 .nothing-not-found{
   width: 50%;
-  margin: 20px auto;
+  margin: 0px auto;
 }
 .nothing-not-found__title{
   margin-top: 20px;

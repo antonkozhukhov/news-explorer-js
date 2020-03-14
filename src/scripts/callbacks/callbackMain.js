@@ -6,6 +6,7 @@ export function logOut(){
   event.preventDefault();
   document.querySelector('.body-mobile').classList.add('display-none')
   localStorage.setItem('token', badToken);
+  serverApi.token = localStorage.getItem('token');
   serverApi.getMe()
     .then(()=>{
       islogged()
@@ -46,6 +47,9 @@ export function registrationOpenFromEnter() {
   enterPopup.close();
   registrationPopup.open();
   registrationValidate.buttonIsNotValid();
+}
+export function clearSearchError(){
+  document.querySelector('.search-menu__error').textContent = ' ';
 }
 
 

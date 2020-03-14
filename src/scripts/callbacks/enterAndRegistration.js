@@ -2,8 +2,8 @@ import { serverApi, registrationPopup, enterPopup, registrationOkPopup,registrat
   enterEmail, enterPassword, registrationName, registrationEmail, registrationPassword,   } from '../script';
   import { islogged, formDisabled, formAbled } from '../functions/functions'
   import {emptyString } from '../variables/variables'
-const popupRegistration = document.querySelector('.form__registration');
-const popupEnter = document.querySelector('.form__enter');
+const popupRegistration = document.querySelector('.form_registration');
+const popupEnter = document.querySelector('.form_enter');
   export function registration(event){
   event.preventDefault();
   formDisabled(popupRegistration)
@@ -29,7 +29,8 @@ export function enter(){
   serverApi.signin( enterEmail.value, enterPassword.value).then((res)=>{
     formAbled(popupEnter);
     localStorage.setItem('token', res.token);
-       islogged();
+    serverApi.token = localStorage.getItem('token');
+    islogged();
        enterPopup.close();
            })
        .catch(err => {

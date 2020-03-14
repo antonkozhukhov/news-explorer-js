@@ -1,7 +1,8 @@
 import {serverApi} from '../secondary';
+import {createBaseArticle} from '../functions/createBaseArticle'
 export class Article{
   constructor(article){
-    this.articleElement = this._createarticle(article);
+    this.articleElement = this._createArticle(article);
     this.articleElement.querySelector('.article__icon-save_saved').addEventListener('click', function(){
       event.stopImmediatePropagation();
       event.preventDefault();
@@ -15,51 +16,18 @@ export class Article{
          })
     });
   }
-
-  _createarticle(article){
-    const articleResult = document.createElement('a');  /*создание элементов карточки*/
-    articleResult.classList.add('article');
+  _createArticle(article){
+    const articleResult  = createBaseArticle(article);
     articleResult.setAttribute('href', article.link);
-    articleResult.setAttribute('target', '_blank');
-
-    const articlePic = document.createElement('div');
-    articlePic.classList.add('article__pic');
-    const articleTitle = document.createElement('h3');
-    articleTitle.classList.add('article__title');
-    articleTitle.textContent =  article.title;
+    articleResult.querySelector('.article__source').textContent =  article.source;
+    articleResult.querySelector('.article__content').textContent =  article.text;
+    articleResult.querySelector('.article__date').textContent = article.date;
+    articleResult.querySelector('.article__img').setAttribute('src', article.image);
+    articleResult.querySelector('.article__icon-save').classList.add('article__icon-save_saved');
     const articleKeyword = document.createElement('h3');
     articleKeyword.classList.add('article__icon-name');
     articleKeyword.textContent =  article.keyword;
-
-    const articleImg = document.createElement('img');
-    articleImg.classList.add('article__img');
-    articleImg.setAttribute('src', article.image);
-
-    const articleIconSave = document.createElement('div');
-    articleIconSave.classList.add('article__icon-save');
-    articleIconSave.classList.add('article__icon-save_saved');
-
-     const articleDate = document.createElement('p');
-     articleDate.classList.add('article__date');
-     articleDate.textContent = article.date;
-
-     const articleContent = document.createElement('p');
-     articleContent.classList.add('article__content');
-     articleContent.textContent =  article.text;
-
-     const articleSource = document.createElement('p');
-     articleSource.classList.add('article__source');
-     articleSource.textContent =  article.source;
-
-     articlePic.appendChild(articleImg);
-    articleResult.appendChild(articleIconSave);
-    articleResult.appendChild(articlePic);
     articleResult.appendChild(articleKeyword);
-    articleResult.appendChild(articleDate);
-    articleResult.appendChild(articleTitle);
-    articleResult.appendChild(articleContent);
-    articleResult.appendChild(articleSource);
-    return articleResult;
+  return articleResult;
   }
-
 }

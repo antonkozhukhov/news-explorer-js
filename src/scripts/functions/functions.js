@@ -41,6 +41,8 @@ export function errorReset(){
   document.querySelector('#error-email-or-password').textContent = emptyString;
   document.querySelector('#error-name').textContent = emptyString;
   document.querySelector('#user-is').textContent = emptyString;
+  document.querySelector('.search-menu__error').textContent = emptyString;
+
 }
 export function formDisabled(popup){
   popup.querySelectorAll('input').forEach(form=>form.setAttribute('disabled', true));

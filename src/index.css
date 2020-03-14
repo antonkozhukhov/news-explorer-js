@@ -47,6 +47,10 @@ a:hover{
 button:disabled{
   cursor: default;
 }
+input:disabled{
+  background: transparent;
+
+} /* добавил для бесцветного блокированного инпута*/
 body{
 max-width: 1440px;
 margin: auto;

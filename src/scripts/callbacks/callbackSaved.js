@@ -3,6 +3,7 @@ import {serverApi } from '../secondary';
 export function logOutFromSaved(){
   event.preventDefault();
   localStorage.setItem('token', badToken);
+  serverApi.token = localStorage.getItem('token');
   serverApi.getMe()
 .then(res=>{
   if(res){
