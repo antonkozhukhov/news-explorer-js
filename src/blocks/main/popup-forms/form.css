@@ -1,6 +1,6 @@
 @import url(./button/button.css);
 @import url(./error/error.css);
-@import url(./form__enter/form_enter.css);
+@import url(./form_enter/form_enter.css);
 @import url(./popup_input/popup_input.css);
 @import url(./registration-ok/registration-ok.css);
 
@@ -31,7 +31,7 @@
 }
 
 .form__title{
-  font-family: Roboto;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 900;
   margin: 0;
@@ -71,7 +71,7 @@
   border-radius: 16px;
 }
 .form__title{
-  font-family: Roboto;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 900;
   margin: 0;

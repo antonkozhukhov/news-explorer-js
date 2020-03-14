@@ -1,16 +1,17 @@
 import {Article} from './articleSaved';
+const createCard = (article)=>new Article(article);
 export class ArticleList{
   constructor(container, initialArticles){
     this.container = container;
     this.initialArticles = initialArticles;
-    this._render(initialArticles);
+
   }
 
    _addArticle(article){
-      const {articleElement} = new Article(article);
+      const {articleElement} = createCard(article);
       this.container.appendChild(articleElement);
   }
-   _render(initialArticles){
+   render(initialArticles){
           initialArticles.forEach((article) => this._addArticle(article));
   }
 }

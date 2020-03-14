@@ -1,16 +1,16 @@
 .form__error-valid{
   margin-top: 3px;
   margin-bottom: 13px;
-  font-family: Inter;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
   line-height: 15px;
   color: #FF0000;
   height: 20px;
-  
+
 }
-.form__error-valid__registration{
+.form__error-valid_registration{
   text-align: center;
   margin: auto;
   margin-bottom: -34px;

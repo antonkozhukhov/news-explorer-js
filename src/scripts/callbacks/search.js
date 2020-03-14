@@ -1,7 +1,10 @@
-import {numberOfArticlesForOneLoad, emptyKeywordMessage} from '../variables/variables';
-import { nothingNotFound,showmoreButton,results,finding, searchName, articleContainer } from '../script';
+import {numberOfArticlesForOneLoad, emptyKeywordMessage, newsApiError} from '../variables/variables';
+import { nothingNotFound,showmoreButton,results,finding, searchName, articleContainer} from '../script';
 import {ArticleList} from '../classes/articleList';
 import {NewsApi} from '../fetchs/newsApi';
+import {formDisabled, formAbled } from '../functions/functions'
+const searchMenuForm = document.querySelector('.search-menu__form');
+const searchError = document.querySelector('.search-menu__error');
 const newsApi = new NewsApi();
 let numberOfLoadedArticles = 0;
 let articles = [];
@@ -9,7 +12,9 @@ let keyWord = '';
 let articlesAll;
 let articleList;
 let lengthArticles;
+
 export function search(){
+  formDisabled(searchMenuForm);
   numberOfLoadedArticles = 0;
   event.preventDefault();
   articles= [];
@@ -22,17 +27,20 @@ export function search(){
   finding.classList.remove('display-none');
 
   keyWord = searchName.value;
-  if (!keyWord){alert(emptyKeywordMessage);
+  if (!keyWord){searchError.textContent = emptyKeywordMessage;
+    formAbled(searchMenuForm);
     finding.classList.add('display-none');
   }
   else{
     newsApi.getNews(keyWord).then((res)=>{
+      formAbled(searchMenuForm);
       finding.classList.add('display-none');
     if (res.articles.length === 0){
       nothingNotFound.classList.remove('display-none');
     }
     if (res.articles.length!=0 && res.articles.length <= numberOfArticlesForOneLoad){
         articleList = new ArticleList(keyWord, articleContainer, res.articles);
+        articleList.render(keyWord, res.articles);
       }
     if (res.articles.length > numberOfArticlesForOneLoad){
 
@@ -40,6 +48,7 @@ export function search(){
         articles[k] = res.articles[k];
        }
         articleList = new ArticleList(keyWord, articleContainer, articles);
+        articleList.render(keyWord, articles);
         showmoreButton.classList.remove('display-none')
         lengthArticles = res.articles.length;
         articlesAll = res.articles;
@@ -48,7 +57,8 @@ export function search(){
       numberOfLoadedArticles = numberOfLoadedArticles + numberOfArticlesForOneLoad;
     })
     .catch(err => {
-      alert ('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз');
+      searchError.textContent = newsApiError;
+      formAbled(searchMenuForm);
       finding.classList.add('display-none');
       console.log(err);
  })
@@ -60,6 +70,7 @@ export function search(){
         articles[k] = articlesAll[numberOfLoadedArticles+k];
        }
         articleList = new ArticleList(keyWord, articleContainer, articles);
+        articleList.render(keyWord, articles);
         numberOfLoadedArticles = numberOfLoadedArticles + numberOfArticlesForOneLoad;
     }
     else {
@@ -68,5 +79,6 @@ export function search(){
           }
           showmoreButton.classList.add('display-none');
           articleList = new ArticleList(keyWord, articleContainer, articles);
+          articleList.render(keyWord, articles);
         }
   }

@@ -6,20 +6,21 @@ export const results = document.querySelector('.results');
 export const finding = document.querySelector('.finding');
 export const nothingNotFound = document.querySelector('.nothing-not-found')
 const registrationOkForm = document.forms.registrationOk;
-const registrationForm = document.forms.registration;
+export const registrationForm = document.forms.registration;
 export const registrationName = registrationForm.elements.name;
 export const registrationEmail = registrationForm.elements.email;
 export const registrationPassword = registrationForm.elements.password;
 export const menuName = document.querySelector('.header__name');
 export const menuAuth = document.querySelector('.header__auth');
-const enterForm = document.forms.enter;
+export const enterForm = document.forms.enter;
 export const enterEmail = enterForm.elements.enteremail;
 export const enterPassword = enterForm.elements.enterpassword;
 const searchForm = document.forms.search;
 export const searchName = searchForm.elements.name;
-export const formEnter = document.querySelector('.form__enter');
-export const formRegistration = document.querySelector('.form__registration');
-export const formRegistrationOk = document.querySelector('.form__registration-ok');
+export const formEnter = document.querySelector('.form_enter');
+export const formRegistration = document.querySelector('.form_registration');
+export const formRegistrationOk = document.querySelector('.form_registration-ok');
+
 
 import {ServerApi} from './fetchs/ServerApi';
 import {ValidateRegistration, ValidateEnter} from './classes/validation';
@@ -28,15 +29,17 @@ import {islogged, isNotlogged } from './functions/functions';
 import { baseUrl } from './variables/variables';
 import {logOut, registrationOpen, validationOfRegistration,
    validationEmailOfRegistration, validationOfEnter, enterOpenFromRegistration,
-   registrationOpenFromEnter } from './callbacks/callbackMain';
+   registrationOpenFromEnter,clearSearchError } from './callbacks/callbackMain';
 import {registration, enter, registrationOkFromRegistration}  from './callbacks/enterAndRegistration';
 import {search, showMore} from './callbacks/search';
-import {mobileMenuOpen, mobileMenuClose} from './functions/mobileMenu';
+import {mobileMenu} from './functions/mobileMenu';
+
 export const enterPopup = new Popup(formEnter);
 export const registrationPopup = new Popup(formRegistration);
 export const registrationOkPopup = new Popup (formRegistrationOk);
 export const registrationValidate = new ValidateRegistration(registrationButton, formRegistration);
 export const enterValidate = new ValidateEnter(enterButton, formEnter);
+
 
 export const serverApi = new ServerApi({
   baseUrl: baseUrl,
@@ -68,6 +71,7 @@ registrationEmail.addEventListener('input', validationEmailOfRegistration);
 registrationPassword.addEventListener('input', validationOfRegistration);
 enterEmail.addEventListener('input', validationOfEnter);
 enterPassword.addEventListener('input', validationOfEnter);
+searchName.addEventListener('input', clearSearchError);
 // переход между попапами
 document.querySelector('.or-registration__link_enter').addEventListener('click', enterOpenFromRegistration);
 document.querySelector('.or-registration__link_registration').addEventListener('click', registrationOpenFromEnter);
@@ -86,6 +90,4 @@ searchForm.addEventListener('submit', search)
 showmoreButton.addEventListener('click', showMore)
 
 // функционал открытия/закрытия меню в мобильной версии
-
-document.querySelector('.header__menu-mobile-img').addEventListener('click', mobileMenuClose);
-document.querySelector('#exit').addEventListener('click',mobileMenuOpen);
+mobileMenu();

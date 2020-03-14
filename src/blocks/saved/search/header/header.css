@@ -14,7 +14,7 @@
   border: 0;
 }
 .header__saved-articles_saved{
-  font-family: Roboto;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -27,6 +27,12 @@
 }
 .header__name-menu_saved{
   border: 1px solid #D1D2D6;
+}
+@media (max-width :550px) {
+  .header__saved-articles_saved{
+    height: 100%;
+padding-bottom: 5px;
+  }
 }
 @media (max-width :380px) {
 .header__menu.saved{

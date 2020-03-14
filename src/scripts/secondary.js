@@ -5,7 +5,7 @@ import { ArticleList } from './classes/articleListSaved';
 import { ServerApi } from './fetchs/ServerApi';
 import {mainPage, baseUrl} from './variables/variables';
 import {logOutFromSaved} from './callbacks/callbackSaved';
-import {mobileMenuOpen, mobileMenuClose} from './functions/mobileMenu';
+import { mobileMenu } from './functions/mobileMenu';
 export const serverApi = new ServerApi({
       baseUrl: baseUrl,
       headers: {
@@ -42,8 +42,12 @@ serverApi.getMyArticles()
  ключ. слов и находим первые. Лучше, конечно, это рассписать подробнее, но пока так)*/
  serverApi.getMyArticles()
 .then(res=>{
- let articleList = new ArticleList(articleContainer, res.sort(function(a,b){return countOfArticlessWithOneKeyword(b,res)-countOfArticlessWithOneKeyword(a,res);
-  }))
+ let articleList = new ArticleList(articleContainer, res.sort(function(a,b){
+   return countOfArticlessWithOneKeyword(b,res)-countOfArticlessWithOneKeyword(a,res);
+}))
+ articleList.render(res.sort(function(a,b){
+  return countOfArticlessWithOneKeyword(b,res)-countOfArticlessWithOneKeyword(a,res);
+}))
 return Array.from(new Set(res.sort(function(a,b){return countOfArticlessWithOneKeyword(b,res)-countOfArticlessWithOneKeyword(a,res);}).map(function(item){return item.keyword;})))})
 .then( res=>{keyWordsShow(res) })
 .catch(err => {
@@ -51,5 +55,4 @@ return Array.from(new Set(res.sort(function(a,b){return countOfArticlessWithOneK
  })
 
 // открытие/закрытие меню в мобильной версии
-document.querySelector('.header__menu-mobile-img').addEventListener('click', mobileMenuClose);
-document.querySelector('#exit').addEventListener('click',mobileMenuOpen);
+mobileMenu();

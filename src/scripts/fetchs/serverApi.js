@@ -3,6 +3,7 @@ export class ServerApi {
   constructor(options) {
     this.baseUrl = options['baseUrl'];
     this.headers = options['headers'];
+    this.token = localStorage.getItem('token');
   }
 signup(name, email, password){
     return fetch(`${this.baseUrl}/signup`, {
@@ -53,7 +54,7 @@ getArticles(){
   method: 'GET',
   headers: {
 
-    authorization: `Bearer ${localStorage.getItem('token')}`
+    authorization: `Bearer ${this.token}`
 },
   })
   .then((res) => {
@@ -72,7 +73,7 @@ getArticles(){
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
-    authorization: `Bearer ${localStorage.getItem('token')}`
+    authorization: `Bearer ${this.token}`
 },
   })
   .then((res) => {
@@ -90,7 +91,7 @@ postArticle(keyword, article){
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-     authorization: `Bearer ${localStorage.getItem('token')}`
+     authorization: `Bearer ${this.token}`
 },
 body: JSON.stringify({
     keyword: keyword,
@@ -118,7 +119,7 @@ deleteArticle(id){
   method: 'DELETE',
   headers: {
     'Content-Type': 'application/json',
-       authorization: `Bearer ${localStorage.getItem('token')}`
+       authorization: `Bearer ${this.token}`
 },
   })
   .then((res) => {
@@ -136,7 +137,7 @@ getMe(){
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
-     authorization: `Bearer ${localStorage.getItem('token')}`
+     authorization: `Bearer ${this.token}`
 },  })
 .then((res) => {
   return res.json()

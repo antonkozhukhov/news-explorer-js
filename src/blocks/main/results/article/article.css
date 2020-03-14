@@ -13,7 +13,7 @@
   top: 10px;
   background: #FFFFFF;
   border-radius: 10px;
-  font-family: Roboto;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -61,7 +61,7 @@
   color: #B6BCBF;
   }
 .article__title{
-  font-family: Roboto Slab;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 26px;
@@ -76,7 +76,7 @@
 .article__content{
   margin-left: 24px;
   margin-right: 24px;
-  font-family: Roboto;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -84,7 +84,7 @@
   color: #1A1B22;
   }
 .article__source{
-  font-family: Roboto Slab;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;

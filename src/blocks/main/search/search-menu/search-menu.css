@@ -14,7 +14,7 @@
 }
 .search-menu__tittle{
   margin-bottom: 32px;
-  font-family: Roboto Slab;
+  font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 60px;
@@ -22,13 +22,26 @@
   color: #FFFFFF;
 }
 .search-menu__subtittle{
-  margin-bottom: 64px;
-  font-family: Roboto;
+  margin-bottom: 36px;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
   color: #FFFFFF;
+}
+.search-menu__error{
+  width: 100%;
+  text-align: center;
+  margin: auto;
+  font-size: 16px;
+  line-height: 20px;
+  height: 20px;
+  margin-bottom: 8px;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  color: #FF0000;
 }
 .search-menu__form{
   height: 64px;
@@ -40,9 +53,10 @@
   box-sizing: border-box;
   border-radius: 100px;
 }
+
 .search-menu__input{
   width: 100%;
-  font-family: Roboto;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -66,7 +80,7 @@
   color: #1A1B22;
 }
 .search-menu__button{
-  font-family: Roboto;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 500;
   color: #FFFFFF;
@@ -78,19 +92,29 @@
   border-radius: 300px;
   font-size: 18px;
   line-height: 24px;
+  background: #2F71E5;
 }
 .search-menu__button:hover{
   background: #347EFF;
   cursor: url(../../../../images/lapka.png), pointer;
 }
+.search-menu__button:focus{
+  background: #347EFF;
+}
 .search-menu__button:active{
   background: #2A65CC;
 }
+
 @media (max-width :790px) {
 .search-menu{
   width: 89%;
   margin: 0;
   margin: auto;
+}
+.search-menu__error{
+
+  font-size: 14px;
+  line-height: 16px;
 }
 .search-menu__form{
 width: 300px;
@@ -119,6 +143,7 @@ width: 300px;
   display: flex;
   flex-direction: column;
 }
+
   .search-menu__tittle{
   width: 100%;
   padding-top: 30px;

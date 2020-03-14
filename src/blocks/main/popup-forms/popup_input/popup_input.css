@@ -1,7 +1,7 @@
 .form__input-title{
   margin-top: 22px;
   margin-bottom: 9px;
-  font-family: Inter;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -9,6 +9,9 @@
   color: #2F71E5;
 }
 .form__input{
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+font-style: normal;
+font-weight: normal;
   width: 100%;
   border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
@@ -42,15 +45,15 @@ text-align: center;
 .or-registration__link{
   text-decoration: none;
 }
-.form__registration{
+.form_registration{
   display: block;
 }
 
-@media (max-width :320px) {
+@media (max-width :380px) {
 .form__input-title{
   margin-top: 9px;
   margin-bottom: 9px;
-  font-family: Inter;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
 font-style: normal;
 font-weight: normal;
 font-size: 12px;
